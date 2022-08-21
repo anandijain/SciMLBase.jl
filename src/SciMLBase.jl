@@ -12,6 +12,7 @@ import Logging, ArrayInterfaceCore
 import IteratorInterfaceExtensions
 import CommonSolve: solve, init, solve!
 import FunctionWrappersWrappers
+import Tricks
 
 function __solve end
 function __init end
