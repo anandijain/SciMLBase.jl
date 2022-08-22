@@ -175,8 +175,8 @@ decision.
 """
 function isinplace(f, inplace_param_number, fname = "f", iip_preferred = true)
     nargs = numargs(f)
-    iip_dispatch = any(x -> x == inplace_param_number, nargs)
-    oop_dispatch = any(x -> x == inplace_param_number - 1, nargs)
+    iip_dispatch = static_hasmethod(f, Tuple{Vararg{Any,inplace_param_number}})
+    oop_dispatch = static_hasmethod(f, Tuple{Vararg{Any,inplace_param_number - 1}})
 
     if !iip_dispatch && !oop_dispatch
         if length(nargs) == 0
